@@ -37,7 +37,7 @@ app.use(methodOverride(function (req, res) {
 
 //Logging
 if (process.env.NODE_ENV === 'production') {
-     app.use(morgan('prod'))
+     app.use(morgan('combined'))
 }
 
 
