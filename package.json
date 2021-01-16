@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "cross-env NODE_ENV=development nodemon app"
+    "dev": "nodemon app.js"
   },
   "engines": {
     "node": "12.18.2",
@@ -29,7 +29,6 @@
     "passport-google-oauth20": "^2.0.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.3",
     "nodemon": "^2.0.6"
   }
 }
