@@ -9,7 +9,7 @@ const connectDB = async () => {
         })
         console.log(`MongoDB connected: ${conn.connection.host}`)
     } catch (err) {
-        console.error(err)
+        console.error('Xatolik: ' + err)
         process.exit(1)
     }
 }
