@@ -1,0 +1,27 @@
+<h2>Xarajatlar</h2>
+<div class="row">
+    {{#each expenses}}
+       <div class="col s12 m4">
+           <div class="card">
+               <div class="card-image">
+                    {{{editIcon user ../user _id}}}
+               </div>
+               <div class="card-content center-align">
+                   <h5>{{title}}</h5>
+                   <p>{{price}}$</p>
+                
+                   <br>
+                   <div class="chip">
+                       <img src="{{user.image}}" alt="">
+                       <a href="/expenses/user/{{user._id}}">{{user.firstName}}</a>
+                   </div>
+               </div>
+               <div class="card-action center-align">
+                   <a href="/expenses/{{_id}}" class="btn grey">Batafsil</a>
+               </div>
+           </div>
+       </div>
+    {{else}}
+    <p><h3 style="color: red;">Ko'rish uchun Xaridlar mavjud emas</h3></p>
+    {{/each}}
+</div>

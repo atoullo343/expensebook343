@@ -1,0 +1,41 @@
+<span style="color: Indigo;">Asosiy Panel</span>
+<h3 style="color: Indigo;">Assalomu alaykum, {{name}}</h3>
+<p>Bu yerda sizning xaridlaringiz</p>
+{{#if expenses}}
+   <table class="striped">
+       <thead>
+           <tr>
+               <th>Nomi</th>
+               <th>Narxi $</th>
+               <th>Sana</th>
+               <th>Holat</th>
+                <th>Tahrirlash &nbsp; O'chirish</th>
+                
+
+           </tr>
+       </thead>
+       <tbody>
+           {{#each expenses}}
+           <tr>
+               <td><a href="/expenses/{{_id}}">{{title}}</a></td>
+               <td><a href="/expenses/{{_id}}"></a>{{price}}</td>
+               <td>{{formatDate createdAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+               <td><span class="dash-status">{{status}}</span></td>
+               <td>
+                   <a href="/expenses/edit/{{_id}}" class="btn btn-float">
+                   <i class="fas fa-edit"></i>
+                   </a>
+                   <form action="/expenses/{{_id}}" method="POST" id="delete-form">
+                   <input type="hidden" name="_method" value="delete">
+                   <button type="submit" class="btn red">
+                       <i class="fas fa-trash"></i>
+                   </button>
+                   </form>
+               </td>
+           </tr>
+           {{/each}}
+       </tbody>
+   </table>
+{{else}}
+<p><h4 style="color: red;">Siz hali xarajat qo'shmadingiz</h4></p>
+{{/if}}

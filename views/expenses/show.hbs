@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="col s12 m8">
+        <h3>{{expense.title}}
+            <small>{{{editIcon expense.user user expense._id false}}}</small>
+        </h3>
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title">Sana: {{formatDate date 'MMMM Do YYYY, h:mm:ss a'}}
+                    <hr><br> Chek ID: {{numberCheque}}
+                    <hr><br> Narx: {{{expense.price}}} $
+                </span>
+
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title">{{expense.user.displayName}}</span>
+                <img src="{{expense.user.image}}" class="circle responsive-img img-small">
+            </div>
+        </div>
+    </div>
+</div>

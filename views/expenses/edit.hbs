@@ -1,0 +1,35 @@
+<h3>Xarajatni tahrirlash</h3>
+<div class="row">
+    <form action="/expenses/{{expense._id}}" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="put">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="title" name="title" value="{{expense.title}}">
+                <label for="title">Nomi</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field">
+                <input type="number" id="price" name="price" value="{{expense.price}}">
+                <label for="price">Narxi $</label>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    <option value="public" selected>Ommaviy</option>
+                    <option value="private">Shaxsiy</option>
+                </select>
+                <label for="status">Holatni tanlang</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <input type="submit" value="Saqlash" class="btn">
+            <a href="/dashboard" class="btn orange">Bekor qilish</a>
+        </div>
+    </form>
+</div>
