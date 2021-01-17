@@ -23,7 +23,7 @@ mongoose.connect('mongodb+srv://admin_343:atoullo@cluster0.ky9fg.mongodb.net/exp
                  useUnifiedTopology: true,
                  useFindAndModify: false
              }).then(() => console.log('DB ulandi'))
-             .catch((err) => console.log('DB ulanmadi' + err))
+             .catch((err) => console.log('DB ulanmadi: ' + err))
 
 const app = express()
 
@@ -42,9 +42,9 @@ app.use(methodOverride(function (req, res) {
    }))
 
 //Logging
-if (process.env.NODE_ENV === 'production') {
-     app.use(morgan('prod'))
-}
+process.env.NODE_ENV === 'production'
+     
+
 
 
 //Handlebars Helpers
