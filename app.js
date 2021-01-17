@@ -17,7 +17,13 @@ dotenv.config({ path: './config/config.env' })
 // Passport config
 require('./config/passport')(passport)
 
-connectDB()
+// connectDB()
+mongoose.connect('mongodb+srv://admin_343:atoullo@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true&w=majority', {
+                 useNewUrlParser: true,
+                 useUnifiedTopology: true,
+                 useFindAndModify: false
+             }).then(() => console.log('DB ulandi'))
+             .catch((err) => console.log('DB ulanmadi' + err))
 
 const app = express()
 
@@ -37,7 +43,7 @@ app.use(methodOverride(function (req, res) {
 
 //Logging
 if (process.env.NODE_ENV === 'production') {
-     app.use(morgan('combined'))
+     app.use(morgan('prod'))
 }
 
 
