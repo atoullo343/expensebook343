@@ -18,7 +18,7 @@ dotenv.config({ path: './config/config.env' })
 require('./config/passport')(passport)
 
 // connectDB()
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb+srv://admin_343:atoullo@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true&w=majority', {
      useNewUrlParser: true,
      useUnifiedTopology: true,
      useFindAndModify: false
