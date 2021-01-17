@@ -42,7 +42,9 @@ app.use(methodOverride(function (req, res) {
    }))
 
 //Logging
-process.env.NODE_ENV === 'production'
+if(process.env.NODE_ENV === 'production'){
+     app.use(morgan('start'))
+}
      
 
 
