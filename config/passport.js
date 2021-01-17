@@ -25,7 +25,7 @@ module.exports = function (passport) {
                     if (user) {
                         done(null, user)
                     } else {
-                        user = await (await User.create(newUser)).save()
+                        user = await (await User.create(newUser))
                         done(null, user)
                     }
                 } catch (err) {
