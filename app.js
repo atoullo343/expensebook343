@@ -8,7 +8,7 @@ const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-//const connectDB = require('./config/db')
+const connectDB = require('./config/db')
 
 
 //Load config
@@ -17,14 +17,8 @@ dotenv.config({ path: './config/config.env' })
 // Passport config
 require('./config/passport')(passport)
 
-// connectDB()
-mongoose.connect('mongodb://admin_343:grand3435474@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true', {
-                 useNewUrlParser: true,
-                 useUnifiedTopology: true,
-                 useCreateIndex: true,
-                 useFindAndModify: false
-             }).then(() => console.log('MongoDB ulandi'))
-             .catch((err) => console.log('MongoDB ulanmadi: ' + err))
+connectDB()
+
 
 const app = express()
 
