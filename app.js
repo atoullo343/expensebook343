@@ -21,6 +21,7 @@ require('./config/passport')(passport)
 mongoose.connect('mongodb://admin_343:grand3435474@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true', {
                  useNewUrlParser: true,
                  useUnifiedTopology: true,
+                 useCreateIndex: true,
                  useFindAndModify: false
              }).then(() => console.log('MongoDB ulandi'))
              .catch((err) => console.log('MongoDB ulanmadi: ' + err))
