@@ -18,12 +18,12 @@ dotenv.config({ path: './config/config.env' })
 require('./config/passport')(passport)
 
 // connectDB()
-mongoose.connect('mongodb://admin_343:atoullo@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://admin_343:atoullo@cluster0.ky9fg.mongodb.net/expensebook?retryWrites=true', {
                  useNewUrlParser: true,
                  useUnifiedTopology: true,
                  useFindAndModify: false
-             }).then(() => console.log('DB ulandi'))
-             .catch((err) => console.log('DB ulanmadi: ' + err))
+             }).then(() => console.log('MongoDB ulandi'))
+             .catch((err) => console.log('MongoDB ulanmadi: ' + err))
 
 const app = express()
 
