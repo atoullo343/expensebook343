@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== 'production'){
+     require('dotenv').config()
+}
+
 const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
@@ -12,7 +16,7 @@ const connectDB = require('./config/db')
 
 
 //Load config
-dotenv.config({ path: './config/config.env' })
+//dotenv.config({ path: './config/config.env' })
 
 // Passport config
 require('./config/passport')(passport)
