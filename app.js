@@ -5,14 +5,12 @@ if(process.env.NODE_ENV !== 'production'){
 const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
-const dotenv = require('dotenv')
-const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
-const connectDB = require('./config/db')
+const app = express()
 
 
 //Load config
@@ -21,10 +19,18 @@ const connectDB = require('./config/db')
 // Passport config
 require('./config/passport')(passport)
 
-connectDB()
 
 
-const app = express()
+
+ //connect mongoDB
+mongoose.connect(process.env.MONGO_URI, {
+     useNewUrlParser: true,
+     useUnifiedTopology: true
+})
+
+const db = mongoose.connection
+db.on('error', err => console.log('MongoDB ulanmadi: ' + err))
+db.once('open', () => console.log('MongoDb connected...'))
 
 //Body parser
 app.use(express.urlencoded({ extended: false }))
@@ -41,9 +47,9 @@ app.use(methodOverride(function (req, res) {
    }))
 
 //Logging
-if(process.env.NODE_ENV === 'production'){
-     app.use(morgan('start'))
-}
+// if(process.env.NODE_ENV === 'production'){
+//      app.use(morgan('start'))
+// }
      
 
 
